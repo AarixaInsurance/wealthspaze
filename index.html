@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wealth Spaze | Software Platform for MFDs, Wealth Managers & RIAs — Powered by Aarixa Innovix</title>
+  <meta name="description" content="Wealth Spaze - Enterprise software platform and mobile applications for Mutual Fund Distributors (MFDs), Wealth Managers, and RIAs. Powered by AARIXA INNOVIX PRIVATE LIMITED." />
+  
+  <!-- Google Fonts (Montserrat, Outfit & Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= FRAUD, PHISHING & AWARENESS POPUP MODAL (NEW VISITORS ONLY) ================= -->
+  <div class="modal-overlay" id="fraudAlertModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Awareness Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-header">
+        <div class="modal-icon-wrap">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <h2 class="modal-title" id="modalTitle">Beware of Fraud, Phishing & Impersonation</h2>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-intro">
+          Scammers may impersonate <strong>Wealth Spaze (AARIXA INNOVIX PRIVATE LIMITED)</strong> via email, WhatsApp, SMS, phone calls, or fake social media profiles, often using look-alike logos and contact details.
+        </p>
+
+        <div class="modal-section">
+          <h3>We will never:</h3>
+          <ul class="modal-list">
+            <li><i class="fa-solid fa-circle-xmark text-danger"></i> Ask you to pay for a job offer, interview, or onboarding.</li>
+            <li><i class="fa-solid fa-circle-xmark text-danger"></i> Solicit investments, guarantee fixed market returns, or request direct fund transfers to personal accounts.</li>
+            <li><i class="fa-solid fa-circle-xmark text-danger"></i> Ask you to share passwords, OTPs, PINs, or confidential banking credentials.</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Stay safe:</h3>
+          <ul class="modal-list">
+            <li><i class="fa-solid fa-circle-check text-success"></i> Verify that communications come only from our official domains (<strong>@wealthspaze.com</strong>, <strong>@aarixainnovix.com</strong>) and listed contact numbers.</li>
+            <li><i class="fa-solid fa-circle-check text-success"></i> Do not click unknown links or download attachments from unverified sources.</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>If something feels off:</h3>
+          <ul class="modal-list">
+            <li><i class="fa-solid fa-shield-halved text-warning"></i> Do not respond, do not make any payment, and do not share personal information.</li>
+            <li><i class="fa-solid fa-shield-halved text-warning"></i> Immediately verify through our official contact at <a href="tel:+918796915095" class="modal-link">+91 87969 15095</a> or email <a href="mailto:support@wealthspaze.com" class="modal-link">support@wealthspaze.com</a>.</li>
+          </ul>
+        </div>
+
+        <div class="modal-disclaimer">
+          <strong>Disclaimer:</strong> AARIXA INNOVIX PRIVATE LIMITED (operating as Wealth Spaze) shall not be responsible for any loss, damage, or liability arising from fraudulent communications or transactions carried out with unauthorised persons falsely claiming to represent us.
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-gold btn-block" id="modalAckBtn">
+          <span>I Understand & Acknowledge</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LEGAL MODALS (TERMS, PRIVACY & DISCLAIMER) ================= -->
+  <!-- 1. Terms & Conditions Modal -->
+  <div class="modal-overlay legal-modal" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsModalTitle">
+    <div class="modal-card legal-modal-card">
+      <button class="modal-close-btn legal-close-btn" data-close="termsModal" aria-label="Close Terms Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header">
+        <div class="modal-icon-wrap">
+          <i class="fa-solid fa-file-contract"></i>
+        </div>
+        <div>
+          <h2 class="modal-title" id="termsModalTitle">Terms &amp; Conditions</h2>
+          <span class="modal-subtitle">AARIXA INNOVIX PRIVATE LIMITED • Wealth Spaze Platform</span>
+        </div>
+      </div>
+      <div class="modal-body legal-modal-body">
+        <div class="legal-clause">
+          <h3>1. Acceptance of Terms</h3>
+          <p>By accessing or using the <strong>Wealth Spaze</strong> web platform, mobile applications (WealthSpaze for Partners, WealthSys for Clients), or any associated software services provided by <strong>AARIXA INNOVIX PRIVATE LIMITED</strong> ("Company", "we", "us", "our"), you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must discontinue the use of our platforms immediately.</p>
+        </div>
+
+        <div class="legal-clause">
+          <h3>2. Nature of Platform &amp; Technology Role</h3>
+          <p>Wealth Spaze operates solely as a digital technology and software solutions provider for Mutual Fund Distributors (MFDs), Wealth Managers, RIAs, and their clients. Wealth Spaze is not an asset management company, depository participant, or banking institution. The platform provides software tools for data consolidation, reporting, workflow management, and client communication.</p>
+        </div>
+
+        <div class="legal-clause">
+          <h3>3. User Accounts &amp; Authentication</h3>
+          <p>Users are responsible for maintaining the confidentiality of their credentials, user IDs, and passwords. Any activity conducted through authorized accounts shall be deemed the sole responsibility of the registered user. Users must immediately notify our technical support team upon identifying any unauthorized access or security breach.</p>
+        </div>
+
+        <div class="legal-clause">
+          <h3>4. Data Confidentiality &amp; Intellectual Property</h3>
+          <p>All software architectures, UI designs, codebases, trademarks, logos, and platform documentation are the proprietary intellectual property of AARIXA INNOVIX PRIVATE LIMITED. Users retain ownership of their respective business and portfolio records stored on the platform, subject to our standard data privacy and operational policies.</p>
+        </div>
+
+        <div class="legal-clause">
+          <h3>5. Limitation of Liability</h3>
+          <p>In no event shall AARIXA INNOVIX PRIVATE LIMITED or its directors, employees, or partners be liable for any indirect, incidental, or consequential damages resulting from telecommunication failures, third-party API downtimes, or market-driven valuation fluctuations.</p>
+        </div>
+
+        <div class="legal-clause">
+          <h3>6. Governing Law &amp; Jurisdiction</h3>
+          <p>These terms shall be governed by and construed in accordance with the laws of India. Any disputes arising out of or in connection with these terms shall be subject to the exclusive jurisdiction of the competent courts in Gurugram, Haryana.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-gold legal-close-btn" data-close="termsModal">
+          <span>Close Terms</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Privacy Policy Modal -->
+  <div class="modal-overlay legal-modal" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
+    <div class="modal-card legal-modal-card">
+      <button class="modal-close-btn legal-close-btn" data-close="privacyModal" aria-label="Close Privacy Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header">
+        <div class="modal-icon-wrap">
+          <i class="fa-solid fa-user-shield"></i>
+        </div>
+        <div>
+          <h2 class="modal-title" id="privacyModalTitle">Privacy Policy</h2>
+          <span class="modal-subtitle">Commitment to Data Security &amp; Confidentiality</span>
+        </div>
+      </div>
+      <div class="modal-body legal-modal-body">
+        <div class="legal-clause">
+          <h3>1. Overview &amp; Scope</h3>
+          <p><strong>AARIXA INNOVIX PRIVATE LIMITED</strong> is dedicated to safeguarding the privacy and confidentiality of personal, business, and financial data collected through the Wealth Spaze and WealthSys platforms.</p>
+        </div>
+
+        <div class="legal-clause">
+          <h3>2. Information We Collect</h3>
+          <p>We may collect information required to operate software services, including contact information (name, business email, phone number), corporate identifiers, device metadata, and platform activity logs necessary for authentication and technical troubleshooting.</p>
+        </div>
+
+        <div class="legal-clause">
+          <h3>3. Enterprise Data Protection &amp; Encryption</h3>
+          <p>All data transmitted across our web portals and mobile applications is encrypted in transit using industry-standard 256-bit SSL protocols. Access to stored databases is restricted by role-based authentication, firewall barriers, and strict confidentiality protocols.</p>
+        </div>
+
+        <div class="legal-clause">
+          <h3>4. Non-Disclosure &amp; Sharing Policy</h3>
+          <p>We do not sell, rent, or lease personal or client portfolio data to any third-party marketing companies. Data is disclosed only when required by statutory regulatory authorities or law enforcement agencies under applicable Indian laws.</p>
+        </div>
+
+        <div class="legal-clause">
+          <h3>5. Data Retention &amp; Rights</h3>
+          <p>Partners and users have the right to request updates, corrections, or account deactivation by submitting an official written request to our support desk at <a href="mailto:support@wealthspaze.com" class="modal-link">support@wealthspaze.com</a>.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-gold legal-close-btn" data-close="privacyModal">
+          <span>Close Privacy Policy</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Statutory Disclaimer Modal -->
+  <div class="modal-overlay legal-modal" id="disclaimerModal" role="dialog" aria-modal="true" aria-labelledby="disclaimerModalTitle">
+    <div class="modal-card legal-modal-card">
+      <button class="modal-close-btn legal-close-btn" data-close="disclaimerModal" aria-label="Close Disclaimer Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header">
+        <div class="modal-icon-wrap">
+          <i class="fa-solid fa-triangle-exclamation text-warning"></i>
+        </div>
+        <div>
+          <h2 class="modal-title" id="disclaimerModalTitle">Statutory Disclaimer</h2>
+          <span class="modal-subtitle">Regulatory &amp; Platform Information</span>
+        </div>
+      </div>
+      <div class="modal-body legal-modal-body">
+        <div class="legal-clause">
+          <h3>1. Software Platform Provider Status</h3>
+          <p><strong>Wealth Spaze</strong> is an enterprise software platform engineered, owned, and operated by <strong>AARIXA INNOVIX PRIVATE LIMITED</strong>. Wealth Spaze provides software applications, cloud portals, and technical tools for Mutual Fund Distributors (MFDs), Wealth Managers, RIAs, and their clients.</p>
+        </div>
+
+        <div class="legal-clause">
+          <h3>2. Market Risk Disclosure</h3>
+          <p>Mutual fund investments and capital market products are subject to market risks. Users and investors must read all scheme-related documents, offering circulars, and risk disclosure statements carefully before making any investment decision.</p>
+        </div>
+
+        <div class="legal-clause">
+          <h3>3. Non-Solicitation &amp; No Guarantee</h3>
+          <p>Wealth Spaze and AARIXA INNOVIX PRIVATE LIMITED do not promise or guarantee fixed financial returns. Past performance data displayed within portfolio tracking tools is for informational and record-keeping purposes only and is not indicative of future returns.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-gold legal-close-btn" data-close="disclaimerModal">
+          <span>I Acknowledge</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= STICKY NAVBAR ================= -->
+  <header class="site-header" id="navbar">
+    <div class="container nav-container">
+      
+      <!-- Exact Logo with powered by subtext -->
+      <a href="#" class="brand-logo" aria-label="Wealth Spaze Home">
+        <div class="brand-logo-container">
+          <!-- Vector SVG Logo with precise geometric typography matching reference -->
+          <svg class="logo-svg" viewBox="0 0 520 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- WE -->
+            <text x="2" y="44" font-family="'Montserrat', sans-serif" font-weight="900" font-size="44" fill="#002D62" letter-spacing="1.5">WE</text>
+            
+            <!-- STYLIZED A -->
+            <g transform="translate(86, 11)">
+              <path d="M18 0L0 33H12.5L18 21.5L23.5 33H36L18 0Z" fill="#F5A623"/>
+              <path d="M21 26L23.5 33H36L27 18L21 26Z" fill="#002D62"/>
+            </g>
+            
+            <!-- LTH -->
+            <text x="128" y="44" font-family="'Montserrat', sans-serif" font-weight="900" font-size="44" fill="#002D62" letter-spacing="1.5">LTH</text>
+            
+            <!-- SP -->
+            <text x="246" y="44" font-family="'Montserrat', sans-serif" font-weight="900" font-size="44" fill="#002D62" letter-spacing="1.5">SP</text>
+            
+            <!-- STYLIZED A -->
+            <g transform="translate(318, 11)">
+              <path d="M18 0L0 33H12.5L18 21.5L23.5 33H36L18 0Z" fill="#F5A623"/>
+              <path d="M21 26L23.5 33H36L27 18L21 26Z" fill="#002D62"/>
+            </g>
+            
+            <!-- ZE -->
+            <text x="360" y="44" font-family="'Montserrat', sans-serif" font-weight="900" font-size="44" fill="#002D62" letter-spacing="1.5">ZE</text>
+          </svg>
+          <div class="logo-subtext">
+            <span class="logo-powered-text">powered by <strong>AARIXA INNOVIX PVT. LTD.</strong></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#about" class="nav-link">About Us</a></li>
+          <li><a href="#support" class="nav-link">Support</a></li>
+          <li><a href="#contact" class="nav-link">Contact Us</a></li>
+          <li class="nav-btn-item">
+            <a href="https://mfd.wealthspaze.com/" target="_blank" rel="noopener noreferrer" class="btn btn-gold nav-login-btn">
+              <i class="fa-solid fa-arrow-right-to-bracket"></i>
+              <span>MFD Login</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero-section" id="home">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+    </div>
+    <div class="container hero-grid">
+      
+      <!-- Hero Left Content -->
+      <div class="hero-content">
+        <span class="section-subtitle">ENTERPRISE TECHNOLOGY PLATFORM</span>
+        <h1 class="hero-title">
+          A Software Platform For <span class="text-gradient">MFDs, Wealth Managers &amp; RIAs</span>
+        </h1>
+        <p class="hero-description">
+          Wealth Spaze provides secure web software and native mobile applications engineered specifically for Mutual Fund Distributors, Wealth Managers, RIAs, and their clients across India.
+        </p>
+
+        <!-- CTA Actions -->
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-gold btn-lg">
+            <span>Explore Platform</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-light-glass btn-lg">
+            <span>Contact Us</span>
+          </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="hero-trust-bar">
+          <div class="trust-item">
+            <i class="fa-solid fa-cloud trust-icon"></i>
+            <div>
+              <strong>Cloud Web Platform</strong>
+              <span>Zero Install Console</span>
+            </div>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <i class="fa-solid fa-mobile-screen-button trust-icon"></i>
+            <div>
+              <strong>Android & iOS Apps</strong>
+              <span>WealthSpaze & WealthSys</span>
+            </div>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <i class="fa-solid fa-shield-halved trust-icon"></i>
+            <div>
+              <strong>256-Bit SSL</strong>
+              <span>Enterprise Grade</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Right Visual Card -->
+      <div class="hero-visual">
+        <div class="dashboard-mockup-card">
+          <div class="mockup-header">
+            <div class="mockup-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="mockup-search-pill">
+              <i class="fa-solid fa-circle-nodes"></i> Wealth Spaze Technology Platform
+            </div>
+          </div>
+
+          <div class="mockup-body hero-modules-body">
+            
+            <div class="quick-module-badge-row">
+              <div class="q-mod-item">
+                <i class="fa-solid fa-shield-halved text-blue"></i>
+                <span>256-Bit SSL</span>
+              </div>
+              <div class="q-mod-item">
+                <i class="fa-solid fa-cloud text-gold"></i>
+                <span>99.9% Uptime</span>
+              </div>
+              <div class="q-mod-item">
+                <i class="fa-solid fa-server text-green"></i>
+                <span>Cloud Platform</span>
+              </div>
+              <div class="q-mod-item">
+                <i class="fa-solid fa-headset text-blue"></i>
+                <span>24/7 Support</span>
+              </div>
+            </div>
+
+            <div class="hero-highlight-box">
+              <div class="hh-top">
+                <span class="hh-badge">ENTERPRISE PLATFORMS</span>
+                <h4>Web Portals &amp; Native Mobile Apps</h4>
+              </div>
+              <p class="hh-desc">
+                Providing modern software, 256-bit SSL data encryption, and high-availability cloud services for MFDs, Wealth Managers, RIAs, and their clients.
+              </p>
+              <div class="hh-footer">
+                <span class="hh-meta"><i class="fa-solid fa-check-double text-green"></i> Seamless Multi-Device Synchronization</span>
+                <span class="hh-meta"><i class="fa-solid fa-lock text-green"></i> Enterprise-Grade Data Confidentiality</span>
+              </div>
+            </div>
+
+            <div class="hero-app-pill-row">
+              <div class="app-mini-pill">
+                <i class="fa-brands fa-google-play"></i>
+                <span>Google Play Live</span>
+              </div>
+              <div class="app-mini-pill">
+                <i class="fa-brands fa-apple"></i>
+                <span>App Store Live</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONSOLIDATED PLATFORM, SECURITY & SERVICE OVERVIEW ================= -->
+  <section class="section-services-grid" id="services">
+    <div class="container">
+      
+      <div class="section-header text-center">
+        <span class="section-subtitle">PLATFORM &amp; SERVICES</span>
+        <h2 class="section-title">Built For MFDs, Wealth Managers &amp; RIAs</h2>
+        <p class="section-description">
+          Wealth Spaze is a dedicated technology platform designed for Mutual Fund Distributors (MFDs), Wealth Managers, and RIAs. We handle software delivery, enterprise security, and technical services so you can serve your clients with confidence.
+        </p>
+      </div>
+
+      <!-- Consolidated 3-Pillar Architecture Grid -->
+      <div class="platform-pillars-grid">
+        
+        <!-- Pillar 1: Platform Purpose -->
+        <div class="platform-pillar-card">
+          <div class="ppc-icon-wrap icon-blue">
+            <i class="fa-solid fa-cubes"></i>
+          </div>
+          <h3 class="ppc-title">Technology Platform</h3>
+          <p class="ppc-text">
+            Engineered specifically for Mutual Fund Distributors, Wealth Managers, and RIAs. We deliver institutional-grade web software and intuitive mobile applications for partners and clients.
+          </p>
+          <ul class="ppc-features">
+            <li><i class="fa-regular fa-circle-check"></i> Built for MFDs, Wealth Managers &amp; RIAs</li>
+            <li><i class="fa-regular fa-circle-check"></i> WealthSpaze for Partners &amp; WealthSys for Clients</li>
+            <li><i class="fa-regular fa-circle-check"></i> Zero-install cloud web portal and native mobile apps</li>
+            <li><i class="fa-regular fa-circle-check"></i> Multi-screen responsiveness across desktop, tablet &amp; mobile</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2: Security Infrastructure -->
+        <div class="platform-pillar-card highlight-pillar">
+          <div class="ppc-icon-wrap icon-purple">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="ppc-title">Enterprise Security</h3>
+          <p class="ppc-text">
+            Security and confidentiality are at the core of our software. All communications, user sessions, and stored records are protected using industry-standard enterprise encryption protocols.
+          </p>
+          <ul class="ppc-features">
+            <li><i class="fa-regular fa-circle-check"></i> End-to-end 256-bit SSL encryption for all data transmissions</li>
+            <li><i class="fa-regular fa-circle-check"></i> Role-based access controls and session management</li>
+            <li><i class="fa-regular fa-circle-check"></i> Strict data privacy and confidentiality safeguards</li>
+            <li><i class="fa-regular fa-circle-check"></i> Proactive threat monitoring &amp; fraud awareness protections</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 3: Technical Service & Reliability -->
+        <div class="platform-pillar-card">
+          <div class="ppc-icon-wrap icon-green">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <h3 class="ppc-title">Services &amp; Reliability</h3>
+          <p class="ppc-text">
+            We manage technical operations, cloud hosting, and ongoing system maintenance with high uptime so that your business runs smoothly around the clock.
+          </p>
+          <ul class="ppc-features">
+            <li><i class="fa-regular fa-circle-check"></i> 99.9% Cloud platform uptime with continuous monitoring</li>
+            <li><i class="fa-regular fa-circle-check"></i> Direct technical support and query resolution for partners</li>
+            <li><i class="fa-regular fa-circle-check"></i> Automated backups, version updates, and performance tuning</li>
+            <li><i class="fa-regular fa-circle-check"></i> Smooth onboarding assistance and technical guidance</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Web & Mobile Platform Banner -->
+      <div class="web-platform-banner" id="web-platform">
+        <div class="wp-content-full">
+          <span class="badge-tag">WEB &amp; MOBILE PLATFORMS</span>
+          <h3>Wealth Spaze &amp; WealthSys Web Portals &amp; Mobile Applications</h3>
+          <p>
+            Access our digital platform directly from any modern web browser and on native mobile applications for Android and iOS. Built on cloud architecture with enterprise 256-bit encryption for partners and clients.
+          </p>
+          <div class="wp-specs">
+            <span><i class="fa-solid fa-lock text-green"></i> 256-Bit SSL Encryption</span>
+            <span><i class="fa-brands fa-google-play text-green"></i> Google Play Live</span>
+            <span><i class="fa-brands fa-apple text-green"></i> App Store Live</span>
+            <span><i class="fa-solid fa-cloud text-green"></i> 99.9% Uptime Cloud</span>
+            <span><i class="fa-solid fa-shield-halved text-green"></i> Secure Multi-Platform Access</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ABOUT US (ELABORATED & SEBI-COMPLIANT) ================= -->
+  <section class="section-about" id="about">
+    <div class="container">
+      <div class="about-card">
+        <div class="about-header">
+          <span class="section-subtitle">ABOUT US</span>
+          <h2>Built by Aarixa Innovix for Modern Wealth Management</h2>
+          <p class="about-desc">
+            <strong>Wealth Spaze</strong> is a specialized financial technology software platform engineered, owned, and operated by <strong>AARIXA INNOVIX PRIVATE LIMITED</strong>. Our mission is to equip Mutual Fund Distributors (MFDs), Wealth Managers, and RIAs with robust, modern digital software to streamline their day-to-day operations, client interactions, and portfolio tracking.
+          </p>
+        </div>
+
+        <!-- Detailed About Us Grid: Dual Platform, Security & Service Delivery -->
+        <div class="about-details-grid">
+          <div class="about-detail-box">
+            <div class="adb-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <div class="adb-content">
+              <h3>Who We Are</h3>
+              <p>
+                AARIXA INNOVIX PRIVATE LIMITED is an Indian technology company headquartered in Gurugram, Haryana. We specialize in developing institutional-grade software systems, web applications, and mobile products tailored exclusively for financial professionals.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-detail-box">
+            <div class="adb-icon"><i class="fa-solid fa-users-gear"></i></div>
+            <div class="adb-content">
+              <h3>Tailored for MFDs, Wealth Managers &amp; RIAs</h3>
+              <p>
+                We understand the technical demands of distributors and wealth professionals. Wealth Spaze provides intuitive interfaces, reliable cloud services, and synchronized cross-device access so that partners can focus on building lasting client relationships.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-detail-box">
+            <div class="adb-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+            <div class="adb-content">
+              <h3>Dual Platform Ecosystem</h3>
+              <p>
+                Our ecosystem comprises <strong>WealthSpaze</strong> (a comprehensive console for partners and wealth managers) and <strong>WealthSys</strong> (a streamlined, transparent portal and mobile app for clients and investors), available on Web, Android, and iOS.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-detail-box">
+            <div class="adb-icon"><i class="fa-solid fa-lock"></i></div>
+            <div class="adb-content">
+              <h3>Institutional Security &amp; Compliance</h3>
+              <p>
+                We enforce strict data protection protocols, 256-bit SSL encryption for data in transit, multi-factor authentication safeguards, and strict confidentiality standards to ensure your business and client data remain secure.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-pillars-grid mt-32">
+          <div class="about-pillar">
+            <div class="ap-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h4>Enterprise Security</h4>
+            <p>256-bit SSL encryption, secure data transmission, and strict confidentiality protocols across mobile and web platforms.</p>
+          </div>
+          <div class="about-pillar">
+            <div class="ap-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <h4>Cross-Platform Apps</h4>
+            <p>Native-grade Android and iOS applications built for high performance, ease-of-use, and 24/7 reliability.</p>
+          </div>
+          <div class="about-pillar">
+            <div class="ap-icon"><i class="fa-solid fa-headset"></i></div>
+            <h4>Direct Partner Support</h4>
+            <p>Dedicated technical and account assistance to help partners onboard smoothly and resolve queries promptly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SUPPORT & CONTACT SECTION ================= -->
+  <section class="section-contact" id="contact">
+    <div class="container contact-grid">
+      
+      <!-- Contact Info & Coordinates -->
+      <div class="contact-info-col" id="support">
+        <span class="section-subtitle">GET IN TOUCH</span>
+        <h2 class="contact-title">Contact Wealth Spaze</h2>
+        <p class="contact-sub">
+          Have questions or want to partner with us? Reach out directly to our dedicated sales and support teams or visit our corporate office.
+        </p>
+
+        <div class="contact-cards-list">
+          
+          <!-- Sales Card -->
+          <div class="c-info-card">
+            <div class="c-icon sales-icon"><i class="fa-solid fa-briefcase"></i></div>
+            <div>
+              <strong>Sales &amp; Partnership Inquiries</strong>
+              <div class="c-meta-line">
+                <i class="fa-solid fa-phone text-muted"></i>
+                <a href="tel:+918796915095">+91 87969 15095</a>
+              </div>
+              <div class="c-meta-line">
+                <i class="fa-solid fa-envelope text-muted"></i>
+                <a href="mailto:sales@wealthspaze.com">sales@wealthspaze.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Support Card -->
+          <div class="c-info-card">
+            <div class="c-icon"><i class="fa-solid fa-headset"></i></div>
+            <div>
+              <strong>Product &amp; Technical Support</strong>
+              <div class="c-meta-line">
+                <i class="fa-solid fa-phone text-muted"></i>
+                <a href="tel:+918287582071">+91 82875 82071</a>
+              </div>
+              <div class="c-meta-line">
+                <i class="fa-solid fa-envelope text-muted"></i>
+                <a href="mailto:support@wealthspaze.com">support@wealthspaze.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Corporate Office Card -->
+          <div class="c-info-card">
+            <div class="c-icon"><i class="fa-solid fa-building"></i></div>
+            <div>
+              <strong>Corporate Headquarters</strong>
+              <address>
+                <strong>AARIXA INNOVIX PRIVATE LIMITED</strong><br />
+                1116, 11th Floor, Tower B4, Spaze I-Tech Park,<br />
+                Sector 49, Gurugram, Haryana – 122018, India
+              </address>
+              <div class="c-meta-line mt-4">
+                <i class="fa-solid fa-envelope text-muted"></i>
+                <a href="mailto:info@aarixainnovix.com">info@aarixainnovix.com</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="corporate-badge-pill">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>CIN: U62091HR2026PTC140414 • GSTIN: 06ABECA6000E1ZC</span>
+        </div>
+      </div>
+
+      <!-- Lead Capture Form -->
+      <div class="contact-form-col">
+        <div class="form-wrapper-card">
+          <div class="form-header">
+            <h3>Contact Us</h3>
+            <p>Fill out the form below to connect with our team.</p>
+          </div>
+
+          <form id="demoForm" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName">Full Name <span class="req">*</span></label>
+                <input type="text" id="fullName" name="fullName" placeholder="e.g. Rahul Sharma" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Work Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="name@yourcompany.com" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone / WhatsApp <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 87969 15095" required />
+              </div>
+              <div class="form-group">
+                <label for="userRole">I am a... <span class="req">*</span></label>
+                <select id="userRole" name="userRole" required>
+                  <option value="" disabled selected>Select category</option>
+                  <option value="Partner">Partner (MFD / Wealth Manager / RIA)</option>
+                  <option value="Enterprise">Enterprise / Financial Firm</option>
+                  <option value="Investor">Client / Investor</option>
+                  <option value="Other">General Inquiry</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="3" placeholder="Tell us about your requirements or inquiries..."></textarea>
+            </div>
+
+            <div class="form-consent">
+              <input type="checkbox" id="consent" name="consent" required checked />
+              <label for="consent">I consent to receiving communications from Wealth Spaze / Aarixa Innovix.</label>
+            </div>
+
+            <button type="submit" class="btn btn-gold btn-block btn-lg" id="submitBtn">
+              <span>Send Message</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+            <div id="formFeedback" class="form-feedback hidden"></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CORPORATE & REGULATORY FOOTER ================= -->
+  <footer class="site-footer" id="footer-apps">
+    <div class="container">
+      
+      <div class="footer-top-grid">
+        
+        <!-- Col 1: Brand & Parent Company -->
+        <div class="footer-col brand-col">
+          <div class="footer-logo-wrap">
+            <svg class="logo-svg-footer" viewBox="0 0 520 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- WE (White) -->
+              <text x="2" y="44" font-family="'Montserrat', sans-serif" font-weight="900" font-size="44" fill="#FFFFFF" letter-spacing="1.5">WE</text>
+              
+              <!-- STYLIZED A -->
+              <g transform="translate(86, 11)">
+                <path d="M18 0L0 33H12.5L18 21.5L23.5 33H36L18 0Z" fill="#F5A623"/>
+                <path d="M21 26L23.5 33H36L27 18L21 26Z" fill="#D99000"/>
+              </g>
+              
+              <!-- LTH (White) -->
+              <text x="128" y="44" font-family="'Montserrat', sans-serif" font-weight="900" font-size="44" fill="#FFFFFF" letter-spacing="1.5">LTH</text>
+              
+              <!-- SP (White) -->
+              <text x="246" y="44" font-family="'Montserrat', sans-serif" font-weight="900" font-size="44" fill="#FFFFFF" letter-spacing="1.5">SP</text>
+              
+              <!-- STYLIZED A -->
+              <g transform="translate(318, 11)">
+                <path d="M18 0L0 33H12.5L18 21.5L23.5 33H36L18 0Z" fill="#F5A623"/>
+                <path d="M21 26L23.5 33H36L27 18L21 26Z" fill="#D99000"/>
+              </g>
+              
+              <!-- ZE (White) -->
+              <text x="360" y="44" font-family="'Montserrat', sans-serif" font-weight="900" font-size="44" fill="#FFFFFF" letter-spacing="1.5">ZE</text>
+            </svg>
+          </div>
+          <div class="parent-info-pill">
+            <span>Powered by</span>
+            <strong>AARIXA INNOVIX PRIVATE LIMITED</strong>
+          </div>
+          <p class="footer-legal-desc">
+            Digital technology software platforms engineered for Mutual Fund Distributors, Wealth Managers, RIAs, and their clients across India.
+          </p>
+        </div>
+
+        <!-- Col 2: Services Quick Link -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Platform &amp; Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Corporate Info & Statutory Identifiers -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Corporate Info</h4>
+          <ul class="footer-meta-list">
+            <li><strong>Legal Name:</strong> AARIXA INNOVIX PVT. LTD.</li>
+            <li><strong>CIN:</strong> U62091HR2026PTC140414</li>
+            <li><strong>GSTIN:</strong> 06ABECA6000E1ZC</li>
+            <li><strong>Sales:</strong> <a href="tel:+918796915095">+91 87969 15095</a></li>
+            <li><strong>Support:</strong> <a href="tel:+918287582071">+91 82875 82071</a></li>
+            <li><strong>Sales Email:</strong> <a href="mailto:sales@wealthspaze.com">sales@wealthspaze.com</a></li>
+            <li><strong>Support Email:</strong> <a href="mailto:support@wealthspaze.com">support@wealthspaze.com</a></li>
+            <li><strong>Office:</strong> Spaze I-Tech Park, Sector 49, Gurugram, Haryana – 122018</li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Get The App (Matching User Image 1) -->
+        <div class="footer-col footer-app-col">
+          <h4 class="footer-heading">Get the app</h4>
+          
+          <div class="get-app-card">
+            <span class="app-platform-title">WEALTHSPAZE (FOR PARTNERS)</span>
+            <div class="store-badge-stack">
+              <a href="https://play.google.com/store/apps/details?id=com.wealthspaze.app" target="_blank" rel="noopener noreferrer" class="store-badge-pill" aria-label="Get WealthSpaze on Google Play">
+                <i class="fa-brands fa-google-play"></i>
+                <div>
+                  <small>GET IT ON</small>
+                  <strong>Google Play</strong>
+                </div>
+              </a>
+              <a href="https://apps.apple.com/in/app/wealthspaze/id6800641886" target="_blank" rel="noopener noreferrer" class="store-badge-pill" aria-label="Download WealthSpaze on the App Store">
+                <i class="fa-brands fa-apple"></i>
+                <div>
+                  <small>Download on the</small>
+                  <strong>App Store</strong>
+                </div>
+              </a>
+            </div>
+
+            <span class="app-platform-title mt-12">WEALTHSYS (FOR CLIENTS)</span>
+            <div class="store-badge-stack">
+              <a href="https://play.google.com/store/apps/details?id=com.wealthsys.app" target="_blank" rel="noopener noreferrer" class="store-badge-pill" aria-label="Get WealthSys on Google Play">
+                <i class="fa-brands fa-google-play"></i>
+                <div>
+                  <small>GET IT ON</small>
+                  <strong>Google Play</strong>
+                </div>
+              </a>
+              <a href="https://apps.apple.com/in/app/wealthsys/id6801106699" target="_blank" rel="noopener noreferrer" class="store-badge-pill" aria-label="Download WealthSys on the App Store">
+                <i class="fa-brands fa-apple"></i>
+                <div>
+                  <small>Download on the</small>
+                  <strong>App Store</strong>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Regulatory Disclaimer Box with Clickable Legal Actions -->
+      <div class="footer-regulatory-box">
+        <h4><i class="fa-solid fa-shield-halved"></i> Statutory Disclaimer</h4>
+        <p>
+          Wealth Spaze is a digital technology platform developed, owned, and operated by <strong>AARIXA INNOVIX PRIVATE LIMITED</strong>. Wealth Spaze provides software applications, cloud portals, and technological tools for Mutual Fund Distributors, Wealth Managers, RIAs, and their clients. Mutual fund investments are subject to market risks. Read all scheme-related documents carefully.
+        </p>
+      </div>
+
+      <!-- Copyright & Legal Compliance Bottom Bar -->
+      <div class="footer-bottom">
+        <p>© 2026 AARIXA INNOVIX PRIVATE LIMITED. All rights reserved. Wealth Spaze™</p>
+        <div class="footer-bottom-links">
+          <a href="#about">About Us</a>
+          <a href="#support">Support</a>
+          <a href="#contact">Contact</a>
+          <a href="javascript:void(0)" class="legal-link-trigger" data-modal="termsModal">Terms &amp; Conditions</a>
+          <a href="javascript:void(0)" class="legal-link-trigger" data-modal="privacyModal">Privacy Policy</a>
+          <a href="javascript:void(0)" class="legal-link-trigger" data-modal="disclaimerModal">Disclaimer</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>

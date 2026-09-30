@@ -1,0 +1,24 @@
+{
+  "name": "wealthspaze",
+  "version": "1.0.0",
+  "description": "Wealth Spaze - One Platform. Complete Wealth. Powered by Aarixa Innovix Pvt. Ltd.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "wealth-management",
+    "fintech",
+    "mfd",
+    "ria",
+    "sebi",
+    "investwell-alternative"
+  ],
+  "author": "Aarixa Innovix Private Limited",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.4.2"
+  }
+}
